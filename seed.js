@@ -11,7 +11,7 @@ async function seed() {
  // description: { type: String, required: true },
  // status: { type: Boolean, required: true },
  // email: { type: String, required: true }
- await Cat.create({
+ await Book.create({
    title: 'Don Quixote',
    description: 'Classic tale of Spanish man who defends the helpless and destroys the wicked.',
    status: true,
@@ -19,7 +19,7 @@ async function seed() {
  });
  console.log('Don Quixote was added');
  
- await Cat.create({
+ await Book.create({
   title: 'A Tale of Two Cities',
   description: 'Classic tale of a French doctor\'s imprisonment in the lead up to the French Revolution.',
   status: true,
@@ -27,7 +27,7 @@ async function seed() {
 });
 console.log('A Tale of Two Cities was added');
 
-await Cat.create({
+await Book.create({
   title: 'The Lord of the Rings',
   description: 'A saga of a group of sometimes reluctant heroes who set forth to save their world from consummate evil.',
   status: true,
