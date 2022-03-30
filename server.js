@@ -15,7 +15,10 @@ const Book = require('./models/book.js');
 mongoose.connect(process.env.DB_URL);
 
 const app = express();
+
+// middleware
 app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
 
@@ -32,6 +35,7 @@ app.get('/', (request, response) => {
  });
   
 app.get('/books', getBooks);
+app.post('/books', postBooks);
   
 async function getBooks(req, res, next) {
   try {
@@ -47,7 +51,17 @@ async function getBooks(req, res, next) {
     next(error);
   }
  }
-  
+
+ async function postBooks(req, res, next) {
+  // REST verb POST // Mongoose Model.create()
+  console.log(req.body);
+  try {
+    let createdBooks = await Book.create(req.body);
+    res.status(200).send(createdBooks);
+  } catch(error) {
+    next(error);
+  }
+}
  
 app.get('/test', (request, response) => {
 
