@@ -36,6 +36,7 @@ app.get('/', (request, response) => {
   
 app.get('/books', getBooks);
 app.post('/books', postBooks);
+app.delete('/books/:id', deleteBooks);
   
 async function getBooks(req, res, next) {
   try {
@@ -62,6 +63,20 @@ async function getBooks(req, res, next) {
     next(error);
   }
 }
+
+async function deleteBooks(req, res, next) {
+  // REST verb DELETE // Mongoose Model.findByIdAndDelete()
+  let id = req.params.id;
+  try {
+    console.log(id);
+    await Book.findByIdAndDelete(id);
+    res.send('This book has been deleted.');
+  } catch(error) {
+    next(error);
+  }
+}
+
+
  
 app.get('/test', (request, response) => {
 
