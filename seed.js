@@ -14,6 +14,7 @@ async function seed() {
  await Book.create({
    title: 'Don Quixote',
    description: 'Classic tale of Spanish man who defends the helpless and destroys the wicked.',
+   assets: './assets/DonQuixote.jpeg',
    status: true,
    email: 'yamas.chris@gmail.com'
  });
@@ -22,6 +23,7 @@ async function seed() {
  await Book.create({
   title: 'A Tale of Two Cities',
   description: 'Classic tale of a French doctor\'s imprisonment in the lead up to the French Revolution.',
+  assets: './assets/ATaleofTwoCities.jpeg',
   status: true,
   email: 'yamas.chris@gmail.com'
 });
@@ -30,6 +32,7 @@ console.log('A Tale of Two Cities was added');
 await Book.create({
   title: 'The Lord of the Rings',
   description: 'A saga of a group of sometimes reluctant heroes who set forth to save their world from consummate evil.',
+  assets: '/assets/LOTR.jpeg',
   status: true,
   email: 'yamas.chris@gmail.com'
 });
