@@ -37,7 +37,11 @@ app.get('/', (request, response) => {
 app.get('/books', getBooks);
 app.post('/books', postBooks);
 app.delete('/books/:id', deleteBooks);
+
 app.put('/books/:id', putBooks);
+=======
+app.put('/books:id', changeBooks);
+
   
 async function getBooks(req, res, next) {
   try {
@@ -84,11 +88,22 @@ async function putBooks(req, res, next) {
     console.log(id);
     let updatedBook= await Book.findByIdAndUpdate(id, req.body,{new: true, overwrite: true});
     res.send(updatedBook);
+=======
+async function changeBooks(req, res, next) {
+  let id = req.params.id;
+  try {
+    console.log(id);
+    let changedBook = await Book.findByIdAndUpdate(id, req.body, {new:true,overwrite:true});
+    res.send(changedBook);
+
   } catch(error) {
     next(error);
   }
 }
 
+
+
+=======
 
  
 app.get('/test', (request, response) => {
