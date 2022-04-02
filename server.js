@@ -81,7 +81,6 @@ async function deleteBooks(req, res, next) {
   }
 }
 
-
 async function putBooks(req, res, next) {
   // REST verb DELETE // Mongoose Model.findByIdAndDelete()
   let id = req.params.id;
